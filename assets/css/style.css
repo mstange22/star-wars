@@ -1,0 +1,116 @@
+html {
+	min-height: 100%
+}
+
+body {
+	height: 100%;
+	background-image: url("../images/star-wars-background.jpg");
+	background-position: right;
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-color: #000000;
+}
+
+h2 {
+	margin-top: 10px;
+	color: #777777;
+}
+
+#nav {
+	border: none;
+}
+
+#navbar {
+	border-radius: unset;
+}
+
+#navbar-container {
+	max-width: 960px;
+	width: 100%;
+	margin: auto;
+}
+
+#star-wars-nav {
+	text-align: center;
+	font-size: 36px;
+	font-family: inherit;
+	color: #777777;
+	background-color: #000000;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	border: none;
+	border-bottom: 2px solid #777777;
+}
+.row {
+	max-width: 100%;
+}
+
+.jumbotron {
+	border: 2px solid #777777;
+	background-color: transparent;
+	padding: 20px;
+	margin-bottom: 20px;
+
+}
+
+#image-jumbotron {
+	margin: 0;
+	margin-bottom: 20px;
+	padding: 0;
+	padding-left: 10px;
+	padding-right: 10px;
+	border: none;
+}
+
+.image-container {
+	text-align: center;
+	color: #777777;
+}
+
+img {
+	margin: 0 auto;
+	display: block;
+	max-width: 50px;
+	border: 1px solid #777777;
+}
+
+#message-header {
+	display: block;
+	float: left;
+}
+
+#message {
+	float: left;
+}
+
+.btn-default {
+	background-color: #777777;
+	border-color: #cccccc;
+}
+.btn-default:hover {
+	background-color: #cccccc;
+}
+
+#attack-button {
+	display: block;
+	clear: both;
+}
+
+/*Override Bootstrap's media query settings*/
+@media (min-width: 768px) {
+
+	.navbar {
+		border-radius: unset;
+		background-color: #000000;
+		border-bottom: 2px solid #777777;
+	}
+
+	.container {
+		width: 100%;
+	}
+
+	.container .jumbotron {
+		padding: 20px;
+	}
+
+}

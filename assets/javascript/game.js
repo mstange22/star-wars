@@ -27,12 +27,36 @@ var currentDefender;
 var enemiesDefeated = 0;
 var originalUserAttackPower;
 
+var firstCharacter;
+var secondCharacter;
+var thirdCharacter;
+var fourthCharacter;
+
 var sound = new Audio();
 
 /* reset()
  * Reset for new game.
  */
 function reset() {
+    $("#message").html("Choose your character by clicking on an image.");
+
+    $("#user-name").html("&nbsp;");
+    $("#user-image").attr("src", "assets/images/black.jpg");
+    $("#user-hp").html("&nbsp;");
+
+    $("#defender-name").html("&nbsp;");
+    $("#defender-image").attr("src", "assets/images/black.jpg");
+    $("#defender-hp").html("&nbsp;");
+
+    $("#c1-container").append(firstCharacter);
+    $("#c2-container").append(secondCharacter);
+    $("#c3-container").append(thirdCharacter);
+    $("#c4-container").append(fourthCharacter);
+
+    charactersClicked = 0;
+    enemiesDefeated = 0;
+    activeBattle = false;
+    gameOver = false;
 
 }
 
@@ -147,6 +171,22 @@ $(document).ready(function() {
 
         charactersClicked++;
 
+        if(charactersClicked == 1) {
+            firstCharacter = this.parentElement;
+        }
+
+        if(charactersClicked == 2) {
+            secondCharacter = this.parentElement;
+        }
+
+        if(charactersClicked == 3) {
+            thirdCharacter = this.parentElement;
+        }
+
+        if(charactersClicked == 4) {
+            fourthCharacter = this.parentElement;
+        }
+
         // first character clicked is the user
         if(charactersClicked === 1) {
         
@@ -161,7 +201,7 @@ $(document).ready(function() {
     $("#attack-button").click(function() {
         
         if(!gameOver) {
-                
+
             // have we gotten both user and defender?
             if(charactersClicked >= 2) {
                 activeBattle = true;

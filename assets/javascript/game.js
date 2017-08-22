@@ -23,6 +23,7 @@ var defender = {
 var activeBattle = false;
 var gameOver = false;
 var charactersClicked = 0;
+var charactersLoaded = false;
 var currentDefender;
 var enemiesDefeated = 0;
 var originalUserAttackPower;
@@ -48,21 +49,24 @@ function reset() {
     $("#defender-image").attr("src", "assets/images/black.jpg");
     $("#defender-hp").html("&nbsp;");
 
-    $("#c1-container").append(firstCharacter);
-    $("#c2-container").append(secondCharacter);
-    $("#c3-container").append(thirdCharacter);
-    $("#c4-container").append(fourthCharacter);
+    $("#c1-container").html(firstCharacter);
+    $("#c2-container").html(secondCharacter);
+    $("#c3-container").html(thirdCharacter);
+    $("#c4-container").html(fourthCharacter);
 
     charactersClicked = 0;
+    // charcterCount = 0;
     enemiesDefeated = 0;
     activeBattle = false;
     gameOver = false;
-
 }
 
 function removeCharacterFromGroup(character)
 {
     $(character).remove();
+    // $(character).children[0].innerHTML("&nbsp;");
+    // $(character).children[1].attr("src", "assets/images/black.jpg");
+    // $(character).children[2].innerHTML("&nbsp;");
 }
 
 function moveCharacterToUserArea(character) {
@@ -164,29 +168,29 @@ function doBattle(currentDefender) {
 }
 
 
+function loadAllCharacters(character) {
+
+    firstCharacter = $(character.parentElement.parentElement.children[0].children[0]);
+    secondCharacter = $(character.parentElement.parentElement.children[1].children[0]);
+    thirdCharacter = $(character.parentElement.parentElement.children[2].children[0]);
+    fourthCharacter = $(character.parentElement.parentElement.children[3].children[0]);
+}
+
 $(document).ready(function() {
 
     // Start game when a character image is clicked
     $(".star-wars-image").click(function() {
 
+        if(!charactersLoaded) {
+
+            loadAllCharacters(this.parentElement);
+
+            // Make sure we only do this once.
+            charactersLoaded = true;
+        }
+
         charactersClicked++;
-
-        if(charactersClicked == 1) {
-            firstCharacter = this.parentElement;
-        }
-
-        if(charactersClicked == 2) {
-            secondCharacter = this.parentElement;
-        }
-
-        if(charactersClicked == 3) {
-            thirdCharacter = this.parentElement;
-        }
-
-        if(charactersClicked == 4) {
-            fourthCharacter = this.parentElement;
-        }
-
+        
         // first character clicked is the user
         if(charactersClicked === 1) {
         

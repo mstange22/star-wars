@@ -16,90 +16,140 @@
     <div class="container">
 
         <div class="row">
-
             <div class="col-md-7 col-sm-7 col-xs-7">
-                <div class="jumbotron" id="top-jumbotron">  
-                    <h2>Your Character</h2>
-                </div>
-            </div>            
-
-            <!-- empty column for background image feature -->
-            <div class="col-md-5 col-sm-5 col-xs-5"></div>
-        </div>
-
-        <div class="row">
-            <div class="col-md-7 col-sm-7 col-xs-7">
-                <div class="jumbotron" id="image-jumbotron">  
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-3 col-sm-3 col-xs-3">
-                            <div class="image-container">
-                                Yoda
-                                <a href="#"><img id="yoda-image" class="star-wars-image" src="assets/images/yoda.jpg"></a>
-                                <div id="yoda-hp">HP</div>
+                <div class="jumbotron" id="top-jumbotron">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-7 col-sm-7 col-xs-7">
+                                <h2>Your Character</h2>
                             </div>
-                        </div>                        
-                        <div class="col-md-3 col-sm-3 col-xs-3">
-                            <div class="image-container">
-                                Vader
-                                <a href="#"><img id="vader-image" class="star-wars-image" src="assets/images/vader.jpg"></a>
-                                <div id="vader-hp">HP</div>
+                            <div id="user-image-container" class="col-md-5 col-sm-5 col-xs-5">
+                                <div id="user-name">&nbsp;</div>
+                                <img id="user-image" src="assets/images/black.jpg">
+                                <div id="user-hp">&nbsp;</div>
                             </div>
                         </div>
-                        <div class="col-md-3 col-sm-3 col-xs-3">
-                            <div class="image-container">
-                                Jabba
-                                <a href="#"><img id="jabba-image" class="crystal-image" src="assets/images/jabba.jpg"></a>
-                                <div id="jabba-hp">HP</div>
-                            </div>
-                        </div>
-                        <div class="col-md-3 col-sm-3 col-xs-3">
-                            <div class="image-container">
-                                Maul
-                                <a href="#"><img id="maul-image-4" class="crystal-image" src="assets/images/maul.jpg"></a>
-                                <div id="maul-hp">HP</div>
-                            </div>
-                        </div>
-
                     </div>
                 </div>
+            </div>            
+            <div class="col-md-5 col-sm-5 col-xs-5"></div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-7 col-sm-7 col-xs-7">
+                <div class id="image-jumbotron">  
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-3 col-sm-3 col-xs-3">
+                                <div id="yoda-container" class="image-container">
+                                    <div class="name" label="Yoda">Yoda</div>
+                                    <img id="yoda-image" class="star-wars-image" src="assets/images/yoda.jpg">
+                                    <div class="hp">120</div>
+                                    <div id="yoda-attack" value="6"></div>
+                                    <div id="yoda-counter" value="20"></div>
+                                </div>
+                            </div>                        
+                            <div class="col-md-3 col-sm-3 col-xs-3">
+                                <div id="vader-container" class="image-container">
+                                    <div class="name" label="Darth Vader">Vader</div>
+                                    <img id="vader-image" class="star-wars-image" src="assets/images/vader.jpg">
+                                    <div id="vader-hp">150</div>
+                                    <div id="vader-attack" value="8"></div>
+                                    <div id="vader-counter" value="10"></div>
+                                </div>
+                            </div>
+                            <div class="col-md-3 col-sm-3 col-xs-3">
+                                <div id="jabba-container" class="image-container">
+                                    <div class="name" label="Jabba the Hutt">Jabba</div>
+                                    <img id="jabba-image" class="star-wars-image" src="assets/images/jabba.jpg">
+                                    <div class="hp">100</div>
+                                    <div id="jabba-attack" value="4"></div>
+                                    <div id="jabba-counter" value="5"></div>
+                                </div>
+                            </div>
+                            <div class="col-md-3 col-sm-3 col-xs-3">
+                                <div id="maul-container" class="image-container">
+                                    <div class="name" label="Darth Maul">Maul</div>
+                                    <img id="maul-image-4" class="star-wars-image" src="assets/images/maul.jpg">
+                                    <div class="hp">180</div>
+                                    <div id="maul-attack" value="10"></div>
+                                    <div id="maul-counter" value="25"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-            
-            <!-- empty column for background image feature -->
+            <div class="col-md-5 col-sm-5 col-xs-5"></div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-7 col-sm-7 col-xs-7">
+                <div class="jumbotron">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-7 col-sm-7 col-xs-7">
+                                <h2>Defender</h2>  
+                            </div>
+                            <div id="defender-image-container" class="col-md-5 col-sm-5 col-xs-5">
+                                <div id="defender-name">&nbsp;</div>
+                                <img id="defender-image" src="assets/images/black.jpg">
+                                <div id="defender-hp">&nbsp;</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>            
             <div class="col-md-5 col-sm-5 col-xs-5"></div>
         </div>
 
         <div class="row">
 
             <div class="col-md-7 col-sm-7 col-xs-7">
-                <div class="jumbotron" id="bottom-jumbotron">
-                    <h2>Defender</h2>  
+
+                <div class="jumbotron">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-7 col-sm-7 col-xs-7">
+                                <h2>Fight Section</h2>
+                            </div>
+                            <div class="col-md-5 col-sm-5 col-xs-5">
+                                <button id="attack-button" class="btn btn-default">Attack</button> 
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>            
 
-            <!-- empty column for background image feature -->
             <div class="col-md-5 col-sm-5 col-xs-5"></div>
         </div>
+
 
         <div class="row">
 
             <div class="col-md-7 col-sm-7 col-xs-7">
 
-                <div class="jumbotron" id="bottom-jumbotron">
-                    <h2 id=message-header>Message</h2>
-                    <!-- <div id="message">Message<div> -->
-                    <button id="attack-button" class="btn btn-default">Attack</button> 
+                <div class="jumbotron">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-7 col-sm-7 col-xs-7">
+                                <div id="message">
+                                    Choose your character by clicking on an image.
+                                </div>
+                            </div>
+                            <div class="col-md-5 col-sm-5 col-xs-5">
+                                <button id="reset-button" class="btn btn-default">Reset</button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>            
-
-            <!-- empty column for background image feature -->
             <div class="col-md-5 col-sm-5 col-xs-5"></div>
         </div>
+
 
     </div>
 
-    </body>
     <audio>
         <source src="" type="audio/mpeg">
     </audio>
@@ -107,6 +157,5 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="assets/javascript/game.js"></script>
-</body>
 </body>
 </html>

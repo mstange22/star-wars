@@ -20,9 +20,12 @@ var defender = {
     isDead: false
 };
 
+var activeBattle = false;
 var gameOver = false;
 var charactersClicked = 0;
 var currentDefender;
+var enemiesDefeated = 0;
+var originalUserAttackPower;
 
 var sound = new Audio();
 
@@ -52,6 +55,8 @@ function setUser(character) {
     user.name = character.children[0].attributes[1].nodeValue;
     user.healthPoints = character.children[2].innerHTML;
     user.attackPower = parseInt(character.children[3].attributes[1].nodeValue);
+
+    originalUserAttackPower = user.attackPower;
     user.counterAttackPower = character.children[4].attributes[1].nodeValue
 
     removeCharacterFromGroup(character);
@@ -95,8 +100,10 @@ function doBattle(currentDefender) {
     if(defender.healthPoints <= 0) {
 
         removeDefender();
+        activeBattle = false;
+        enemiesDefeated++;
         
-        if(charactersClicked < 4) {
+        if(enemiesDefeated < 3) {
 
             $("#message").text("You have defeated " + defender.name + ".");
             $("#message").append("You may choose to fight another character.");
@@ -127,7 +134,7 @@ function doBattle(currentDefender) {
                 " attacked you back for " + defender.counterAttackPower +
                 " damage.")
 
-            user.attackPower += user.attackPower;
+            user.attackPower += originalUserAttackPower;
         }
     }
 }
@@ -140,6 +147,7 @@ $(document).ready(function() {
 
         charactersClicked++;
 
+        // first character clicked is the user
         if(charactersClicked === 1) {
         
             setUser(this.parentElement);
@@ -152,9 +160,26 @@ $(document).ready(function() {
 
     $("#attack-button").click(function() {
         
-        // have we gotten both user and defender?
-        if(charactersClicked >= 2) {
-            doBattle(currentDefender);
+        if(!gameOver) {
+                
+            // have we gotten both user and defender?
+            if(charactersClicked >= 2) {
+                activeBattle = true;
+                doBattle(currentDefender);
+
+                if(!gameOver && !activeBattle) {
+
+                    // reset charactersClicked to 1 get next defender 
+                    charactersClicked = 1;                
+                }
+            }
+        }
+    })
+
+    $("#reset-button").click(function() {
+
+        if(gameOver) {
+            reset();
         }
     })
 });

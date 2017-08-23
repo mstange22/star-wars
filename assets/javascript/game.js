@@ -24,7 +24,6 @@ var activeBattle = false;
 var gameOver = false;
 var charactersClicked = 0;
 var charactersLoaded = false;
-var currentDefender;
 var enemiesDefeated = 0;
 var originalUserAttackPower;
 
@@ -43,10 +42,12 @@ function reset() {
 
     $("#user-name").html("&nbsp;");
     $("#user-image").attr("src", "assets/images/black.jpg");
+    $("#user-image").css("border", "none");
     $("#user-hp").html("&nbsp;");
 
     $("#defender-name").html("&nbsp;");
     $("#defender-image").attr("src", "assets/images/black.jpg");
+    $("#defender-image").css("border", "none");
     $("#defender-hp").html("&nbsp;");
 
     $("#c1-container").html(firstCharacter);
@@ -55,18 +56,26 @@ function reset() {
     $("#c4-container").html(fourthCharacter);
 
     charactersClicked = 0;
-    // charcterCount = 0;
     enemiesDefeated = 0;
     activeBattle = false;
     gameOver = false;
+
+    user.name = "";
+    user.healthPoints = 0;
+    user.attackPower = 0;
+    user.counterAttackPower = 0;
+
+    defender.name = "";
+    defender.healthPoints = 0;
+    defender.attackPower = 0;
+    defender.counterAttackPower = 0;
+
+    $("#reset-button").remove();
 }
 
 function removeCharacterFromGroup(character)
 {
     $(character).remove();
-    // $(character).children[0].innerHTML("&nbsp;");
-    // $(character).children[1].attr("src", "assets/images/black.jpg");
-    // $(character).children[2].innerHTML("&nbsp;");
 }
 
 function moveCharacterToUserArea(character) {
@@ -115,11 +124,12 @@ function removeDefender() {
 
     $("#defender-name").html("&nbsp;");
     $("#defender-image").attr("src", "assets/images/black.jpg");
+    $("#defender-image").css("border", "none");
     $("#defender-hp").html("&nbsp;");
 }
 
 
-function doBattle(currentDefender) {
+function doBattle() {
 
     defender.healthPoints -= user.attackPower;
     $("#defender-hp").html(defender.healthPoints);
@@ -133,13 +143,13 @@ function doBattle(currentDefender) {
         
         if(enemiesDefeated < 3) {
 
-            $("#message").text("You have defeated " + defender.name + ".");
-            $("#message").append("You may choose to fight another character.");
+            $("#message").html("<p>You have defeated <b>" + defender.name +
+                "</b>.</p><p>You may choose to fight another character.</p>");
         }
 
         // if all 4 characters have been clicked...WINNER!!!
         else {
-            $("#message").text("You won!  GAME OVER!!!");
+            $("#message").html("<b>You won!  GAME OVER!!!</b>");
             gameOver = true;
         }
     }
@@ -151,16 +161,17 @@ function doBattle(currentDefender) {
 
         if(user.healthPoints <= 0) {
 
-            $("#message").text("You have been defeated.  Game over.");
+            $("#message").html("You have been defeated.  <b>Game Over</b>.");
             gameOver = true;
         }
 
         else {
 
-            $("#message").text("You attacked " + defender.name + " for " +
-                user.attackPower + " damage.\n" + defender.name +
-                " attacked you back for " + defender.counterAttackPower +
-                " damage.")
+            $("#message").html("<p>You attacked <b>" + defender.name +
+                                "</b> for <b>" +
+                user.attackPower + "</b> damage.</p><p><b>" + defender.name +
+                "</b> attacked you back for <b>" + defender.counterAttackPower +
+                " damage.</p>")
 
             user.attackPower += originalUserAttackPower;
         }
@@ -208,8 +219,9 @@ $(document).ready(function() {
 
             // have we gotten both user and defender?
             if(charactersClicked >= 2) {
+
                 activeBattle = true;
-                doBattle(currentDefender);
+                doBattle();
 
                 if(!gameOver && !activeBattle) {
 

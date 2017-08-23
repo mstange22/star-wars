@@ -64,6 +64,10 @@ h2 {
 	border: none;
 }
 
+#image-row {
+	min-height: 83.6px;
+}
+
 .image-container, #user-image-container, #defender-image-container {
 	text-align: center;
 }
@@ -86,6 +90,11 @@ img {
 
 #message {
 	float: left;
+}
+
+#message p {
+	font-size: 12px;
+	line-height: 25%;
 }
 
 .btn-default {

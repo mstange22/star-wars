@@ -83,6 +83,7 @@ function moveCharacterToUserArea(character) {
     $("#user-name").html(character.children[0].innerHTML);
     $("#user-image").attr("src", character.children[1].attributes[2].value);
     $("#user-hp").html(character.children[2].innerHTML);
+    $("#user-image").css("border", "1px solid #777777");
 }
 
 function setUser(character) {
@@ -104,7 +105,8 @@ function moveCharacterToDefenderArea(character) {
 
     $("#defender-name").html(character.children[0].innerHTML);
     $("#defender-image").attr("src", character.children[1].attributes[2].value);
-    $("#defender-hp").html(character.children[2].innerHTML);    
+    $("#defender-hp").html(character.children[2].innerHTML);
+    $("#defender-image").css("border", "1px solid #777777");   
 }
 
 function setDefender(character) {
@@ -126,6 +128,7 @@ function removeDefender() {
     $("#defender-image").attr("src", "assets/images/black.jpg");
     $("#defender-image").css("border", "none");
     $("#defender-hp").html("&nbsp;");
+    $("#defender-image").css("border", "none");
 }
 
 
@@ -151,6 +154,7 @@ function doBattle() {
         else {
             $("#message").html("<b>You won!  GAME OVER!!!</b>");
             gameOver = true;
+            $("#reset-button").css("display", "block");
         }
     }
 
@@ -163,6 +167,7 @@ function doBattle() {
 
             $("#message").html("You have been defeated.  <b>Game Over</b>.");
             gameOver = true;
+            $("#reset-button").css("display", "block");
         }
 
         else {
@@ -177,7 +182,6 @@ function doBattle() {
         }
     }
 }
-
 
 function loadAllCharacters(character) {
 
@@ -235,7 +239,8 @@ $(document).ready(function() {
     $("#reset-button").click(function() {
 
         if(gameOver) {
-            reset();
+            location.reload();
+            // reset();
         }
     })
 });

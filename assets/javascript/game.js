@@ -37,7 +37,7 @@ var sound = new Audio();
 /* reset()
  * Reset for new game.
  */
-function reset() {
+function gameReset() {
     $("#message").html("Choose your character by clicking on an image.");
 
     $("#user-name").html("&nbsp;");
@@ -70,7 +70,7 @@ function reset() {
     defender.attackPower = 0;
     defender.counterAttackPower = 0;
 
-    $("#reset-button").remove();
+    $("#gameReset-button").remove();
 }
 
 function removeCharacterFromGroup(character)
@@ -194,11 +194,11 @@ function loadAllCharacters(character) {
 $(document).ready(function() {
 
     // Start game when a character image is clicked
-    $(".star-wars-image").click(function() {
-
+    $("#image-row").on("click", ".star-wars-image", function() {
+        
         if(!charactersLoaded) {
 
-            loadAllCharacters(this.parentElement);
+        loadAllCharacters(this.parentElement);
 
             // Make sure we only do this once.
             charactersLoaded = true;
@@ -239,8 +239,7 @@ $(document).ready(function() {
     $("#reset-button").click(function() {
 
         if(gameOver) {
-            location.reload();
-            // reset();
+            gameReset();
         }
     })
 });
